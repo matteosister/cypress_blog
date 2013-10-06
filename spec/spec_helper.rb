@@ -51,6 +51,8 @@ Spork.prefork do
 
       # Include the Capybara DSL so that specs in spec/requests still work.
       config.include Capybara::DSL
+
+      config.include FactoryGirl::Syntax::Methods
     end
 
 end

@@ -5,4 +5,6 @@ describe Post do
   subject { @post }
 
   it { should respond_to(:title) }
+  it { should respond_to(:text) }
+  it { should respond_to(:tags) }
 end

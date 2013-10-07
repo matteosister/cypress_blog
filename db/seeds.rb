@@ -9,5 +9,5 @@
 require 'faker'
 
 (1..10).each do |n|
-  Post.create(title: Faker::Name.title, text: Faker::Lorem.paragraphs(5).join(', '))
+  Post.create(title: Faker::Name.title, text: Faker::Lorem.paragraphs(5).join('.<br />'))
 end

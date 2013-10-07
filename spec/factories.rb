@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :post, class: Post do
-    title 'The Facotry Post'
-    text  'Lorem ipsum dolor sit amet ' * 30
+    title { Faker::Name.title }
+    text  { Faker::Lorem.sentences(5).join(', ') }
   end
 end

@@ -1,5 +1,8 @@
 module Slugifier
   def generate_slug(value)
+    if value.nil?
+      return 'n-a'
+    end
     # remove trailing whitespace
     ret = value.strip
     # remove everything apart of words and - and replace with -

@@ -1,6 +1,5 @@
 class HomepageController < ApplicationController
-
   def index
-    @posts = Post.all
+    @posts = Post.limit(5).all
   end
 end

@@ -9,4 +9,20 @@ describe 'Homepage' do
     it { should have_selector('h1') }
     it { should have_content('Cypress Lab blog') }
   end
+
+  describe 'should list the posts' do
+    before do
+      (1..2).each { create(:post) }
+      visit root_path
+    end
+    it { should have_selector('article.post', count: 2) }
+  end
+
+  describe 'should list a max of 5 posts in homepage' do
+    before do
+      (1..6).each { create(:post) }
+      visit root_path
+    end
+    it { should have_selector('article.post', count: 5) }
+  end
 end

@@ -8,6 +8,12 @@
 
 require 'faker'
 
+development = Tag.create(name: 'development')
+web = Tag.create(name: 'web')
+php = Tag.create(name: 'php')
+
 (1..10).each do |n|
-  Post.create(title: Faker::Name.title, text: Faker::Lorem.paragraphs(5).join('.<br />'))
+  post = Post.new(title: Faker::Name.title, text: Faker::Lorem.paragraphs(5).join('.<br />'))
+  post.tags << development
+  post.save
 end

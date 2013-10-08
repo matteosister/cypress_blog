@@ -25,4 +25,9 @@ describe 'Homepage' do
     end
     it { should have_selector('article.post', count: 5) }
   end
+
+  describe 'should have the correct page title' do
+    before { visit root_path }
+    it { should have_title('Homepage') }
+  end
 end

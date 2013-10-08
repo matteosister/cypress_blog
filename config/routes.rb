@@ -1,7 +1,7 @@
 CypressBlog::Application.routes.draw do
   root 'homepage#index'
 
-  get '/:slug' => 'posts#show', as: :post
+  get '/:year/:month/:day/:slug' => 'posts#show', as: :post
   #resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.

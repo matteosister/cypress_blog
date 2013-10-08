@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | CypressLab Blog</title>
+  <title><%= full_title(yield(:page_title)) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <div class="page-header">
-      <h1>Cypress Lab <small>blog</small></h1>
+      <h1><a href="<%= root_path %>">Cypress Lab</a> <small>blog</small></h1>
     </div>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>

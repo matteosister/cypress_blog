@@ -1,6 +1,7 @@
+<%= provide(:page_title, 'Homepage') %>
 <% @posts.each do |post| %>
 <article class="post">
-  <h2><a href="<%= post_path(slug: post.slug) %>"><%= post.title %></a></h2>
-  <p><%= post.text %></p>
+  <h2><a href="<%= url_for_post post %>"><%= post.title %></a></h2>
+  <p><%= raw post.text %></p>
 </article>
 <% end %>

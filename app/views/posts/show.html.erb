@@ -1,3 +1,6 @@
-<% provide(:title, @post.title) %>
-<h2><%= @post.title %></h2>
-<p><%= raw @post.text %></p>
+<% provide(:page_title, @post.title) %>
+<article>
+  <h2><%= @post.title %></h2>
+  <p><%= raw @post.text %></p>
+  <%= raw tags_list(@post) %>
+</article>

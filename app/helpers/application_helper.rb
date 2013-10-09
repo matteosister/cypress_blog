@@ -12,7 +12,7 @@ module ApplicationHelper
     if post.tags.empty?
       return ''
     end
-    render(template: 'tags/_list.html.erb', locals: { tags: post.tags })
+    render(template: 'posts/tags_list.html.erb', locals: { tags: post.tags })
   end
 
   # @param [Post] post

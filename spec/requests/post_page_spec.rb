@@ -19,8 +19,8 @@ describe 'Post page' do
     it { should have_selector 'article' }
     it { should have_selector 'article h2', text: post.title }
     it { should have_selector 'article p', text: post.text }
-    it { should have_selector 'article ul.tags' }
-    it { should have_selector 'article ul.tags li', count: 3 }
+    it { should have_selector 'article div.tags' }
+    it { should have_selector 'article div.tags .tag', count: 3 }
   end
 
   describe 'should have the post title as page title' do

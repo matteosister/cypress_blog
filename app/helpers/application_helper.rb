@@ -1,11 +1,10 @@
 module ApplicationHelper
-
   def full_title(page_title)
     base_title = 'Cypresslab Blog'
-    if page_title.empty?
+    if page_title.nil? or page_title.empty?
       base_title
     else
-      "#{base_title} | #{page_title}"
+      "#{page_title} | #{base_title}"
     end
   end
 
@@ -13,13 +12,7 @@ module ApplicationHelper
     if post.tags.empty?
       return ''
     end
-
-    out = '<ul class="tags">'
-    post.tags.each do |tag|
-      out += "<li>#{ tag.name }</li>"
-    end
-    out += '</ul>'
-    out
+    render(template: 'tags/_list.html.erb', locals: { tags: post.tags })
   end
 
   # @param [Post] post

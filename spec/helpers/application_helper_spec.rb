@@ -1,17 +1,20 @@
 require 'rspec'
+require 'spec_helper'
 
 describe ApplicationHelper do
-  before { ApplicationHelper }
-  subject {helper}
-
-  #it 'should create a post link' do
-  #  helper.should respond_to :post_link
-  #end
-  #it 'should create title page' do
-  #  helper.should respond_to :full_title
-  #end
-  describe 'should generate urls' do
-    it { should respond_to(:url_for_post) }
+  it 'generate urls' do
+    post = create(:post)
+    year = post.created_at.strftime('%Y')
+    month = post.created_at.strftime('%m')
+    day = post.created_at.strftime('%d')
+    helper.should respond_to(:url_for_post)
+    helper.url_for_post(post).should eq("/#{ year }/#{ month }/#{ day }/#{post.slug}")
   end
 
+  it 'generates page title' do
+    helper.should respond_to(:full_title)
+    helper.full_title(nil).should eq('Cypresslab Blog')
+    helper.full_title('').should eq('Cypresslab Blog')
+    helper.full_title('a').should eq('a | Cypresslab Blog')
+  end
 end
